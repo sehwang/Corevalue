@@ -8,6 +8,3 @@ JSR, , 3, quality, safety, listening to customers employees business partners an
 Merck, , 6, courage, achievement, responsibility, respect, integrity, transparency
 3M, , 6, collaboration, innovation, perseverance, passion for change, integrity, honesty
 Formosa Plastics, , 4, integrity, customer service, environmental responsibility, workplace health and safety
-
-
-// do not put ',' in core value slots
