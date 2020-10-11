@@ -1,0 +1,13 @@
+Name, Sort, cnt, core_values
+Dupont, , 4, safety and health, respect for people, highest ethical behavior, protecting the planet
+LG Chem, , 5, customer focus, agility, collaboration, passion, sustainability
+BASF, , 4, creative, open, responsible, entrepreneurial
+Toray, , 9, safety and environment, ethics and fairness, customer-focus, innovation, workplace competency, cooperation and co-creation, emphasis on human resource, information disclosure, respect for human rights
+Plansee, , 6, partner-oriented, exemplary, innovative, successful, international, forward-looking
+JSR, , 3, quality, safety, listening to customers employees business partners and other stakeholders
+Merck, , 6, courage, achievement, responsibility, respect, integrity, transparency
+3M, , 6, collaboration, innovation, perseverance, passion for change, integrity, honesty
+Formosa Plastics, , 4, integrity, customer service, environmental responsibility, workplace health and safety
+
+
+// do not put ',' in core value slots
