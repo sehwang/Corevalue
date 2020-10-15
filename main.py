@@ -49,7 +49,11 @@ def disp_DB(DB):
 def core_word_dic(DB):
     core_dic = {}
     ex = 0
-    exclude_word = ["striving", "strive", "cultivating", "operation", "solution", "way", "priority", "move", "take", "value", "centered", "behavior", "emphasis", "continuous", "focus", "spirit", "we", "all", "other", "each", "is", "are", "have", "what", "in", "who", "with","of", "our", "and",
+    exclude_word = ["striving", "strive", "cultivating", "operation", "solution", "way", "priority",
+                    "move", "take", "value", "centered", "behavior", "emphasis", "continuous", "focus",
+                    "spirit", "we", "all", "other", "each", "is", "are", "have", "what", "in", "who",
+                    "with","of", "our", "and", "work", "view", "take", "pursue", "free", "centric",
+                    "daily", "thing", "always", "activities", "supply", "chain",
                     "the", "to", "on", "for", "&", "do", "it", "a", "as", "about", "through", "one"]
     for corp in DB:
         for core in corp[2]:
@@ -61,7 +65,11 @@ def core_word_dic(DB):
                 if word not in exclude_word:
                     if word not in core_dic.keys():
                         data_dic['Fre'] = 1
-                        data_dic['Point'] = 1 / (int(corp[1]) * len(words) + ex)
+                        if (len(words) - ex) <= 0:
+                            t = len(words)
+                        else:
+                            t = (len(words) - ex)
+                        data_dic['Point'] = 1 / (int(corp[1]) * t)
                         core_dic[word] = data_dic
                     else:
                         core_dic[word]['Fre'] += 1
@@ -86,7 +94,7 @@ def report_csv(dict):
     file = open("report.csv", 'w', encoding='UTF8')
     file.write("Name,")
     file.write("Frequency,")
-    file.write("F\n")
+    file.write("Power\n")
     for key, val in dict.items():
         name = "%s," % key
         fre = "%d," % val["Fre"]
