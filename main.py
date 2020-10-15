@@ -1,12 +1,10 @@
-import operator
-
 def make_db():
 
     source = []
-    f = open("Coval.txt", 'r')
+    f = open("cor.csv", 'r', encoding='UTF8')
     lines = f.readlines()
     for line in lines:
-        words = line.split(", ")
+        words = line.split(",")
         source.append(words)
     f.close()
 
@@ -25,10 +23,12 @@ def make_db():
             if i == 2:
                 cnt = word
             elif i >= 3:
-                if word[-1] != '\n':
-                    co_val.append(word)
-                else:
-                    co_val.append(word[:-1])
+                if word != '':
+                    if word != "\n":
+                        if word[-1] == '\n':
+                            co_val.append(word[:-1])
+                        else:
+                            co_val.append(word)
             i += 1
         if cnt == len(co_val):
             print("you put wrong number of cores")
@@ -49,7 +49,8 @@ def disp_DB(DB):
 def core_word_dic(DB):
     core_dic = {}
     ex = 0
-    exclude_word = ["and", "the", "to", "on", "for"]
+    exclude_word = ["striving", "strive", "cultivating", "operation", "solution", "way", "priority", "move", "take", "value", "centered", "behavior", "emphasis", "continuous", "focus", "spirit", "we", "all", "other", "each", "is", "are", "have", "what", "in", "who", "with","of", "our", "and",
+                    "the", "to", "on", "for", "&", "do", "it", "a", "as", "about", "through", "one"]
     for corp in DB:
         for core in corp[2]:
             words = core.split()
@@ -69,7 +70,7 @@ def core_word_dic(DB):
 
 def report1(dict):
 
-    file = open("first_A.txt", 'w')
+    file = open("first_A.txt", 'w', encoding='UTF8')
     for key, val in dict.items():
         name = "%s:  " % key
         fre = "%d   " % val["Fre"]
@@ -80,15 +81,27 @@ def report1(dict):
         file.write(pnt)
     file.close()
 
-def report2
+def report_csv(dict):
 
+    file = open("report.csv", 'w', encoding='UTF8')
+    file.write("Name,")
+    file.write("Frequency,")
+    file.write("F\n")
+    for key, val in dict.items():
+        name = "%s," % key
+        fre = "%d," % val["Fre"]
+        pnt = "%.3f\n" % val["Point"]
+
+        file.write(name)
+        file.write(fre)
+        file.write(pnt)
+    file.close()
 
 DB = make_db()
 disp_DB(DB)
 core_words = core_word_dic(DB)
 report1(core_words)
+report_csv(core_words)
 print(core_words)
-
-
 
 print("\ndone")
