@@ -52,7 +52,7 @@ def core_word_dic(DB):
     exclude_word = ["striving", "strive", "cultivating", "operation", "solution", "way", "priority",
                     "move", "take", "value", "centered", "behavior", "emphasis", "continuous", "focus",
                     "spirit", "we", "all", "other", "each", "is", "are", "have", "what", "in", "who",
-                    "with","of", "our", "and", "work", "view", "take", "pursue", "free", "centric",
+                    "with", "of", "our", "and", "work", "view", "take", "pursue", "free", "centric",
                     "daily", "thing", "always", "activities", "supply", "chain",
                     "the", "to", "on", "for", "&", "do", "it", "a", "as", "about", "through", "one"]
     for corp in DB:
@@ -65,7 +65,7 @@ def core_word_dic(DB):
                 if word not in exclude_word:
                     if word not in core_dic.keys():
                         data_dic['Fre'] = 1
-                        if (len(words) - ex) <= 0:
+                        if (len(words) - ex) <= 1:
                             t = 1
                         else:
                             t = (len(words) - ex)
@@ -73,7 +73,7 @@ def core_word_dic(DB):
                         core_dic[word] = data_dic
                     else:
                         core_dic[word]['Fre'] += 1
-                        core_dic[word]['Point'] += 1 / int(corp[1])
+                        core_dic[word]['Point'] += 1 / int(corp[1] * t)
     return core_dic
 
 def report1(dict):
