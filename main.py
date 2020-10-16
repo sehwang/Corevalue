@@ -66,7 +66,7 @@ def core_word_dic(DB):
                     if word not in core_dic.keys():
                         data_dic['Fre'] = 1
                         if (len(words) - ex) <= 0:
-                            t = len(words)
+                            t = 1
                         else:
                             t = (len(words) - ex)
                         data_dic['Point'] = 1 / (int(corp[1]) * t)
